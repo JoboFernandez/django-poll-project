@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
+from django.db import IntegrityError
 
 from .models import Poll, Choice, Vote
 from .forms import PollForm, ChoiceForm
@@ -187,6 +188,9 @@ def vote_update(request):
     user = request.user
     choice = get_object_or_404(Choice, id=choice_id)
     question = choice.question
-    Vote.objects.filter(choice__in=question.choice_set.all()).delete()
-    Vote.objects.create(user=user, choice=choice)
+    Vote.objects.filter(user=user, choice__in=question.choice_set.all()).delete()
+    try:
+        Vote.objects.create(user=user, choice=choice)
+    except IntegrityError:
+        pass
     return redirect(reverse("polls:poll_detail", kwargs={"pk": choice.question.pk}))
