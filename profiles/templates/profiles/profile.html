@@ -1,0 +1,16 @@
+<a href="{% url 'profiles:detail' profile.user.id %}" class="text-dark text-decoration-none">
+    <div class="card mt-1 mb-1 form-control">
+      <div class="card-body">
+        <h5 class="card-title">{{ profile.user }}</h5>
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ profile.image.url }}" width="48" class="img-thumbnail rounded" />
+            </div>
+            <div class="col">
+                <span class="card-text">Location: {{ profile.location }}</span>
+                <p class="card-text">Gender: {{ profile.get_gender_display }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</a>

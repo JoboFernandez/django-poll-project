@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col-4 mt-3 mb-3">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+            {{ form|crispy }}
+            </fieldset>
+            <div class="form-group mt-2 mb-3">
+                <button type="submit" class="btn btn-outline-primary form-control">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+{% endblock content %}

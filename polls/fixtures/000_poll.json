@@ -1,0 +1,47 @@
+[
+  {
+    "model": "polls.Poll",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "question": "Programming Language?",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Poll",
+    "pk": 2,
+    "fields": {
+      "author": 2,
+      "question": "IDE?",
+      "date_added": "2020-09-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Poll",
+    "pk": 3,
+    "fields": {
+      "author": 3,
+      "question": "Sports Car Brand?",
+      "date_added": "2020-10-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Poll",
+    "pk": 4,
+    "fields": {
+      "author": 1,
+      "question": "Star Sign?",
+      "date_added": "2020-11-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Poll",
+    "pk": 5,
+    "fields": {
+      "author": 2,
+      "question": "Basketball Team?",
+      "date_added": "2020-12-30T01:57:46Z"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+<a href="{% url 'polls:poll_detail' object.id %}" class="text-decoration-none text-dark"><h5 class="card-title">{{ object.question }}</h5></a>
+<h6 class="card-subtitle mb-2">
+    <a href="{% url 'profiles:detail' object.author.id %}" class="text-decoration-none">{{ object.author.username }}</a> |
+    <span class="text-muted">{{ object.date_added|timesince }} ago</span> |
+    <span class="text-muted">{{ object.vote_count }} votes </span>
+</h6>
+
+{% if user == object.author %}
+<a href="{% url 'polls:poll_update' object.id %}" class="btn btn-outline-primary btn-sm">Update</a>
+<a href="{% url 'polls:poll_delete' object.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+{% endif %}

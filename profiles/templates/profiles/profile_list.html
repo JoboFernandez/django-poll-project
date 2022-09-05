@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col-8">
+
+        <h1 class="text-center mt-5 mb-3">Profile Results for query <small class="font-weight-light">"{{ query }}"</small></h1>
+        <hr>
+
+        <div>
+            {% for profile in profiles %}
+            {% include 'users/profile.html' %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+
+{% endblock content %}

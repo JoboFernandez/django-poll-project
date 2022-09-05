@@ -1,0 +1,110 @@
+[
+  {
+    "model": "polls.Choice",
+    "pk": 1,
+    "fields": {
+      "question": 1,
+      "choice": "Python",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 2,
+    "fields": {
+      "question": 1,
+      "choice": "Java",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 3,
+    "fields": {
+      "question": 1,
+      "choice": "C#",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 4,
+    "fields": {
+      "question": 2,
+      "choice": "PyCharm",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 5,
+    "fields": {
+      "question": 2,
+      "choice": "Sublime Text",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 6,
+    "fields": {
+      "question": 3,
+      "choice": "Lamborghini",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 7,
+    "fields": {
+      "question": 3,
+      "choice": "Bugatti",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 8,
+    "fields": {
+      "question": 3,
+      "choice": "Porsche",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 9,
+    "fields": {
+      "question": 4,
+      "choice": "Taurus",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 10,
+    "fields": {
+      "question": 4,
+      "choice": "Leo",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 11,
+    "fields": {
+      "question": 5,
+      "choice": "GSW",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  },
+  {
+    "model": "polls.Choice",
+    "pk": 12,
+    "fields": {
+      "question": 5,
+      "choice": "CLE",
+      "date_added": "2020-08-30T01:57:46Z"
+    }
+  }
+]

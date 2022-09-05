@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col mt-5">
+
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="border border-secondary rounded p-3">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom text-center mb-3">Sign In</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group mt-5">
+                    <button type="submit" class="btn btn-outline-primary form-control">Sign In</button>
+                </div>
+            </form>
+
+            <div class="pt-2">
+                <small class="text-muted">
+                    Need an account? <a href="{% url 'accounts:register' %}" class="text-decoration-none">Register Now</a>
+<!--                    Forgot Password? <a href="{% url 'password_reset' %}" class="text-decoration-none">Reset Password</a>-->
+                </small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+
+{% endblock content %}

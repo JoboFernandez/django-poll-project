@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col-8 my-2">
+        <div class="card">
+          <div class="card-body">
+            {% include 'polls/poll_header.html' %}
+
+            <hr>
+
+            <form method="post" action="{% url 'polls:vote_update' %}">
+                {% csrf_token %}
+                {% for choice in object.choice_set.all %}
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ choice.id }}" value="{{ choice.id }}" {% if choice.id in selections %}checked{% endif %}>
+                  <label class="form-check-label" for="flexRadioDefault{{ choice.id }}">
+                    {{ choice.choice }}
+                    {% if user == object.author %}
+                    <a href="{% url 'polls:choice_update' object.id choice.id %}" class="btn btn-outline-primary btn-sm">Update</a>
+                    <a href="{% url 'polls:choice_delete' object.id choice.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                    {% endif %}
+                  </label>
+                </div>
+                {% endfor %}
+
+                {% if user == object.author %}
+                <a href="{% url 'polls:choice_create' object.id %}" class="btn btn-outline-primary btn-sm mt-4">Add choice</a>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                <hr>
+                <button type="submit" class="btn btn-outline-primary" id="cast-vote" disabled>Cast Vote</button>
+                {% endif %}
+            </form>
+
+          </div>
+        </div>
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+    let castVote = document.getElementById('cast-vote')
+    let radioButtons = document.getElementsByName('flexRadioDefault')
+    for(let i = 0; i < radioButtons.length; i++){
+        radioButtons[i].addEventListener("click", function(){
+            castVote.disabled = false;
+        })
+    }
+</script>
+{% endblock scripts %}

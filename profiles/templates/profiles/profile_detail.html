@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col-8">
+        <div class="card p-3 py-4 m-3">
+                <div class="text-center">
+                    <img src="{{ object.image.url }}" width="100" class="rounded-circle">
+                </div>
+
+                <div class="text-center mt-3">
+                    <h2 class="mt-2 mb-0">{{ object.user.username }}</h2>
+                    <span>{{ object.location }}</span>
+
+                    <div class="px-4 mt-1 row">
+                        <div class="col">
+                            <div class="row fw-bold"><span>Followers</span></div>
+                            <div class="row"><span>{{ object.follower_count|intcomma }}</span></div>
+                        </div>
+                        <div class="col">
+                            <div class="row fw-bold"><span>Polls</span></div>
+                            <div class="row"><span>{{ object.post_count|intcomma }}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        {% if user != object.user %}
+
+                        {% if not user.id in object.followers %}
+                        <a href="{% url 'profiles:follow' object.user.id %}" class="btn btn-outline-primary px-4">Follow</a>
+                        {% else %}
+                        <a href="{% url 'profiles:unfollow' object.user.id %}" class="btn btn-outline-primary px-4">Unfollow</a>
+                        {% endif %}
+
+                        {% else %}
+                        <a href="{% url 'profiles:update' object.id %}" class="btn btn-outline-primary px-4 ms-3">Update Profile</a>
+
+                        {% endif %}
+                    </div>
+
+
+                </div>
+            </div>
+        <hr>
+
+        <div>
+            {% for object in object_list %}
+            {% include 'polls/poll.html' %}
+            {% endfor %}
+        </div>
+
+        {% include 'paginator.html' %}
+
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+{% endblock content %}

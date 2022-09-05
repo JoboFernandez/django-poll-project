@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col">
+    </div>
+
+    <div class="col mt-3">
+        <h3>You have been logged out!</h3>
+        <hr>
+        <div class="">
+            <small class="text-muted">
+                <a href="{% url 'accounts:login' %}" class="text-decoration-none">Log In Here</a>
+            </small>
+        </div>
+    </div>
+
+    <div class="col">
+    </div>
+
+</div>
+{% endblock %}
